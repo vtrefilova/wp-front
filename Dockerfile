@@ -3,7 +3,8 @@ FROM node:13.1-alpine as build
 WORKDIR /usr/src/app
 COPY package*.json ./
 COPY . ./
-RUN yarn && yarn build
+RUN yarn
+RUN yarn build
 
 # Stage - Production
 FROM nginx:1.17-alpine
