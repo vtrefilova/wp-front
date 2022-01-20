@@ -6,7 +6,8 @@ import { Link } from 'react-router-dom'
 import { translate } from 'react-switch-lang';
 import configDB from '../../data/customizer/config';
 import { DefaultLayout } from '../theme-customizer';
-
+import LogoSVG from '../assets/images/logo/logo.svg';
+import LogoDarkSVG from '../assets/images/logo/logo.svg';
 
 const Sidebar = (props) => {
   const id = window.location.pathname.split('/').pop()
@@ -198,8 +199,8 @@ const Sidebar = (props) => {
       <div className="sidebar-wrapper" id="sidebar-wrapper">
         <div className="logo-wrapper">
           <Link to={`${process.env.PUBLIC_URL}/dashboard/main/`}>
-            <img className="img-fluid for-light" src={require("../../assets/images/logo/logo.svg")} alt="" />
-            <img className="img-fluid for-dark" src={require("../../assets/images/logo/logo_dark.svg")} alt="" />
+            <img className="img-fluid for-light" src={LogoSVG} alt="" />
+            <img className="img-fluid for-dark" src={LogoDarkSVG} alt="" />
           </Link>
           <div className="back-btn" onClick={() => responsiveSidebar()}><i className="fa fa-angle-left"></i></div>
           <div className="toggle-sidebar" onClick={() => openCloseSidebar(sidebartoogle)}><Grid className="status_toggle middle sidebar-toggle" /></div>
