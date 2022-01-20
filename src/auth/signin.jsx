@@ -37,7 +37,7 @@ const Logins = (props) => {
     const token = localStorage.getItem("token");
 
     if(token != null)
-      history.replace("/dashboard/default");
+      history.replace("/dashboard/main");
   }, [])
 
   return (
