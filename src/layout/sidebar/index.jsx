@@ -206,7 +206,7 @@ const Sidebar = (props) => {
           <div className="toggle-sidebar" onClick={() => openCloseSidebar(sidebartoogle)}><Grid className="status_toggle middle sidebar-toggle" /></div>
         </div>
         <div className="logo-icon-wrapper">
-          <Link to={`${process.env.PUBLIC_URL}/dashboard/main/`}><img className="img-fluid" src={require("../../assets/images/logo/logo.svg")} alt="" /></Link>
+          <Link to={`${process.env.PUBLIC_URL}/dashboard/main/`}><img className="img-fluid" src={LogoSVG} alt="" /></Link>
         </div>
         <nav className="sidebar-main" id="sidebar-main">
             <div className="left-arrow" onClick={scrollToLeft}><ArrowLeft /></div>
