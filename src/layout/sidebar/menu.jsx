@@ -5,8 +5,14 @@ export const MENUITEMS = [
         menucontent:"Меню навигации",
         Items:[
             {
-                title: 'Основное', icon: Home, type: 'sub',badge: "badge badge-success", active: false,
+                icon: Home, type: 'sub',badge: "badge badge-success", active: false,
                 path: `${process.env.PUBLIC_URL}/dashboard/main`, title: 'Главная', type: 'link'
+                    // { path: `${process.env.PUBLIC_URL}/dashboard/ecommerce`, title: 'Ecommerce', type: 'link' },
+                
+            },
+            {
+                icon: List, type: 'sub',badge: "badge badge-success", active: false,
+                path: `${process.env.PUBLIC_URL}/dashboard/base-category`, title: 'Базовые категории', type: 'link'
                     // { path: `${process.env.PUBLIC_URL}/dashboard/ecommerce`, title: 'Ecommerce', type: 'link' },
                 
             },

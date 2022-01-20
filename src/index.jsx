@@ -1,16 +1,16 @@
-import React, { Fragment,useState,useEffect } from 'react'
+import React, { Fragment, useState, useEffect } from 'react'
 import ReactDOM from 'react-dom';
 import './index.scss';
-import {firebase_app, auth0} from './data/config';
-import {BrowserRouter,Switch,Route,Redirect} from 'react-router-dom'
+import { firebase_app, auth0 } from './data/config';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
 import { Auth0Provider } from '@auth0/auth0-react'
 import store from './store'
 import App from './components/app'
-import { CSSTransition,TransitionGroup } from 'react-transition-group'
-import {routes} from './route';
-import ConfigDB  from './data/customizer/config'
+import { CSSTransition, TransitionGroup } from 'react-transition-group'
+import { routes } from './route';
+import ConfigDB from './data/customizer/config'
 
 // Signin page
 import Signin from './auth/signin'
@@ -46,18 +46,19 @@ import Maintenance from "./pages/maintenance"
 import Callback from './auth/callback'
 
 
-const Root = (props) =>  {
+const Root = (props) => {
   const [anim, setAnim] = useState("");
-  const jwt_token = localStorage.getItem('token'); 
+  const jwt_token = localStorage.getItem('token');
 
-    return(
-      <Fragment>
-        <Provider store={store}>
+  return (
+    <Fragment>
+      <Provider store={store}>
         <BrowserRouter basename={`/`}>
-        <Switch>
-        <Route  path={`${process.env.PUBLIC_URL}/login`} component={Signin} />
+          <Switch>
+            <Route path={`${process.env.PUBLIC_URL}/login`} component={Signin} />
+            <Route path="/404" component={Error404} />
 
-          {/* <Route  path={`${process.env.PUBLIC_URL}/pages/auth/login`} component={Login}></Route>
+            {/* <Route  path={`${process.env.PUBLIC_URL}/pages/auth/login`} component={Login}></Route>
           <Route  path={`${process.env.PUBLIC_URL}/pages/auth/loginWithBgImg1`} component={LoginWithBgImage}></Route>
           <Route  path={`${process.env.PUBLIC_URL}/pages/auth/loginWithBgImg2`} component={LoginWithBgVideo}></Route>
           <Route  path={`${process.env.PUBLIC_URL}/pages/auth/loginWithValidation`} component={LoginWithValidation}></Route>
@@ -71,52 +72,47 @@ const Root = (props) =>  {
           <Route  path={`${process.env.PUBLIC_URL}/pages/errors/error400`} component={Error400}></Route>
           <Route  path={`${process.env.PUBLIC_URL}/pages/errors/error401`} component={Error401}></Route>
           <Route  path={`${process.env.PUBLIC_URL}/pages/errors/error403`} component={Error403}></Route>
-          <Route  path={`${process.env.PUBLIC_URL}/pages/errors/error404`} component={Error404}></Route>
           <Route  path={`${process.env.PUBLIC_URL}/pages/errors/error500`} component={Error500}></Route>
           <Route  path={`${process.env.PUBLIC_URL}/pages/errors/error503`} component={Error503}></Route> */}
-          
-          {/* <Route  path={`${process.env.PUBLIC_URL}/pages/comingsoon/comingsoon`} component={Comingsoon}></Route> */}
-          {/* <Route  path={`${process.env.PUBLIC_URL}/pages/comingsoon/comingsoonImg`} component={ComingsoonImg}></Route> */}
-          {/* <Route  path={`${process.env.PUBLIC_URL}/pages/comingsoon/comingsoonVideo`} component={ComingsoonVideo}></Route> */}
 
-          {/* <Route  path={`${process.env.PUBLIC_URL}/pages/maintenance`} component={Maintenance}></Route> */}
-          
-          {/* <Route  path={`${process.env.PUBLIC_URL}/callback`} render={() => <Callback/>} /> */}
-          
-          {jwt_token  ?
-          
-          <App>
-          <Route exact path={`${process.env.PUBLIC_URL}/`} render={() => {
-              return (<Redirect to={`${process.env.PUBLIC_URL}/dashboard/main/`} />)
-          }} /> 
-          <TransitionGroup>
-              {routes.map(({ path, Component }) => (
-                <Route key={path}  exact  path={`${process.env.PUBLIC_URL}${path}`}>
-                    {({ match }) => (
-                        <CSSTransition 
+            {/* <Route  path={`${process.env.PUBLIC_URL}/pages/comingsoon/comingsoon`} component={Comingsoon}></Route> */}
+            {/* <Route  path={`${process.env.PUBLIC_URL}/pages/comingsoon/comingsoonImg`} component={ComingsoonImg}></Route> */}
+            {/* <Route  path={`${process.env.PUBLIC_URL}/pages/comingsoon/comingsoonVideo`} component={ComingsoonVideo}></Route> */}
+
+            {/* <Route  path={`${process.env.PUBLIC_URL}/pages/maintenance`} component={Maintenance}></Route> */}
+
+            {/* <Route  path={`${process.env.PUBLIC_URL}/callback`} render={() => <Callback/>} /> */}
+
+            {jwt_token ?
+
+              <App>
+                <TransitionGroup>
+                  {routes.map(({ path, Component }) => (
+                    <Route key={path} path={`${process.env.PUBLIC_URL}${path}`}>
+                      {({ match }) => (
+                        <CSSTransition
                           in={match != null}
                           timeout={100}
-                          classNames={anim}
+                          classNames={"fade"}
                           unmountOnExit>
-                          <div><Component/></div>
-                        </CSSTransition> 
-                    )}
-                </Route>
-                ))}
-          </TransitionGroup> 
-          
-          </App>
-          :
-          <Redirect to={`${process.env.PUBLIC_URL}/login`} />
-          }      
-        </Switch>
+                          <div><Component /></div>
+                        </CSSTransition>
+                      )}
+                    </Route>
+                  ))}
+                </TransitionGroup>
+              </App>
+              :
+              <Redirect to={`${process.env.PUBLIC_URL}/login`} />
+            }
+          </Switch>
         </BrowserRouter>
-        </Provider>
-      </Fragment>
-      )
+      </Provider>
+    </Fragment>
+  )
 }
 
-ReactDOM.render(<Root/>,
+ReactDOM.render(<Root />,
   document.getElementById('root')
 );
 serviceWorker.unregister();

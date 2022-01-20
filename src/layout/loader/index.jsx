@@ -3,18 +3,18 @@ import React, { Fragment,useState,useEffect } from 'react';
 
 const Loader = (props) => {
 
-    const [show, setShow] = useState(true);
+    const [show, setShow] = useState(false);
     
-    useEffect(() => {
-        const timeout = setTimeout(() => {
-            setShow(false)
-            }, 3000);
+    // useEffect(() => {
+    //     const timeout = setTimeout(() => {
+    //         setShow(false)
+    //         }, 3000);
 
-        return () => {
-            clearTimeout(timeout);
-            }
+    //     return () => {
+    //         clearTimeout(timeout);
+    //         }
        
-    },[show]);
+    // },[show]);
 
     return (
         <Fragment>
