@@ -205,9 +205,6 @@ const Sidebar = (props) => {
           <div className="back-btn" onClick={() => responsiveSidebar()}><i className="fa fa-angle-left"></i></div>
           <div className="toggle-sidebar" onClick={() => openCloseSidebar(sidebartoogle)}><Grid className="status_toggle middle sidebar-toggle" /></div>
         </div>
-        <div className="logo-icon-wrapper">
-          <Link to={`${process.env.PUBLIC_URL}/dashboard/main/`}><img className="img-fluid" src={LogoSVG} alt="" /></Link>
-        </div>
         <nav className="sidebar-main" id="sidebar-main">
             <div className="left-arrow" onClick={scrollToLeft}><ArrowLeft /></div>
             <div id="sidebar-menu" style={wrapper.split(' ').includes('horizontal-wrapper') ? { 'marginLeft': margin + 'px' } : { margin: '0px' }}>
