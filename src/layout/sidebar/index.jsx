@@ -31,6 +31,7 @@ const Sidebar = (props) => {
     window.addEventListener('resize', handleResize)
     handleResize();
     const currentUrl = window.location.pathname;
+    console.log(currentUrl);
     MENUITEMS.map(items => {
       items.Items.filter((Items) => {
         if (Items.path === currentUrl)
@@ -97,7 +98,7 @@ const Sidebar = (props) => {
       })
       return menuItems
     })
-    item.active = !item.active
+    item.active = !item.active;
     setMainMenu({ mainmenu: MENUITEMS })
   }
 
@@ -134,7 +135,7 @@ const Sidebar = (props) => {
         return a
       });
     }
-    item.active = !item.active
+    item.active = true
     setMainMenu({ mainmenu: MENUITEMS })
   }
 
