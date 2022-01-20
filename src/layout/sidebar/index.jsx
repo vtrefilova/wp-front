@@ -6,8 +6,8 @@ import { Link } from 'react-router-dom'
 import { translate } from 'react-switch-lang';
 import configDB from '../../data/customizer/config';
 import { DefaultLayout } from '../theme-customizer';
-import LogoSVG from '../assets/images/logo/logo.svg';
-import LogoDarkSVG from '../assets/images/logo/logo.svg';
+import LogoSVG from '../../assets/images/logo/logo.svg';
+import LogoDarkSVG from '../../assets/images/logo/logo.svg';
 
 const Sidebar = (props) => {
   const id = window.location.pathname.split('/').pop()
