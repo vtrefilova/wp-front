@@ -32,7 +32,6 @@ const Sidebar = (props) => {
     window.addEventListener('resize', handleResize)
     handleResize();
     const currentUrl = window.location.pathname;
-    console.log(currentUrl);
     MENUITEMS.map(items => {
       items.Items.filter((Items) => {
         if (Items.path === currentUrl)
@@ -238,7 +237,7 @@ const Sidebar = (props) => {
                             : ''}
 
                           {(menuItem.type === 'link') ?
-                            <Link  to={menuItem.path+'/'} className={`sidebar-link sidebar-title link-nav  ${menuItem.active ? 'active' : ''}`} onClick={() => toggletNavActive(menuItem)}>
+                            <Link  to={menuItem.path} className={`sidebar-link sidebar-title link-nav  ${menuItem.active ? 'active' : ''}`} onClick={() => toggletNavActive(menuItem)}>
                               <menuItem.icon />
                               <span>{props.t(menuItem.title)}</span>
                               {menuItem.badge ? <label className={menuItem.badge}>{menuItem.badgetxt}</label> : ""}
@@ -270,7 +269,7 @@ const Sidebar = (props) => {
                                       : ''}
 
                                     {(childrenItem.type === 'link') ?
-                                      <Link  to={childrenItem.path+'/'} className={`${childrenItem.active ? 'active' : ''}`} onClick={() => toggletNavActive(childrenItem)}>{props.t(childrenItem.title)}</Link>
+                                      <Link  to={childrenItem.path} className={`${childrenItem.active ? 'active' : ''}`} onClick={() => toggletNavActive(childrenItem)}>{props.t(childrenItem.title)}</Link>
                                       : ''}
 
                                     {childrenItem.children ?
@@ -280,7 +279,7 @@ const Sidebar = (props) => {
                                         {childrenItem.children.map((childrenSubItem, key) =>
                                           <li key={key}>
                                             {(childrenSubItem.type === 'link') ?
-                                              <Link to={childrenSubItem.path+'/'} className={`${childrenSubItem.active ? 'active' : ''}`} onClick={() => toggletNavActive(childrenSubItem)}>{props.t(childrenSubItem.title)}</Link>
+                                              <Link to={childrenSubItem.path} className={`${childrenSubItem.active ? 'active' : ''}`} onClick={() => toggletNavActive(childrenSubItem)}>{props.t(childrenSubItem.title)}</Link>
                                               : ''}
                                           </li>
                                         )}

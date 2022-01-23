@@ -1,6 +1,12 @@
 /**=====================
      34. Pricing CSS Start
 ==========================**/
+.pricingtable-signup {
+  display: grid;
+  grid-auto-flow: row;
+  row-gap: 10px;
+}
+
 .pricing-simple {
   box-shadow: 0 0 10px 5px rgba(68, 102, 242, 0.05);
 
@@ -78,9 +84,9 @@
   .price-value {
     color: $white;
     background-color: var(--theme-deafult);
-    width: 130px;
-    height: 130px;
-    padding: 45px 0 0;
+    width: 200px;
+    height: 200px;
+    padding: 75px 0 0;
     margin: 0 auto 25px;
     border-radius: 50%;
 

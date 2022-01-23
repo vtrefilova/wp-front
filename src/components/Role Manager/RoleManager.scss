@@ -1,0 +1,16 @@
+.role-manager-header-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+
+    .role-manager-create-role-block {
+        display: grid;
+        grid-template-columns: max-content max-content;
+        grid-template-rows: max-content;
+        column-gap: 10px;
+        align-items: start;
+    }
+}

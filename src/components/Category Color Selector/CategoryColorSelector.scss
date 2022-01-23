@@ -1,0 +1,19 @@
+.category-color-selector-colors-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    row-gap: 15px;
+
+    .category-color-block-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: max-content max-content;
+        cursor: pointer;
+        justify-items: center;
+
+        .category-color-preview {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+        }
+    }
+}

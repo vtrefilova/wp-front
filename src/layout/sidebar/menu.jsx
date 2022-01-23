@@ -7,13 +7,41 @@ export const MENUITEMS = [
             {
                 icon: Home, type: 'sub',badge: "badge badge-success", active: false,
                 path: `/dashboard/main/`, title: 'Главная', type: 'link'
-                    // { path: `${process.env.PUBLIC_URL}/dashboard/ecommerce`, title: 'Ecommerce', type: 'link' },
                 
             },
             {
                 icon: List, type: 'sub',badge: "badge badge-success", active: false,
                 path: `/dashboard/base-category/`, title: 'Базовые категории', type: 'link'
-                    // { path: `${process.env.PUBLIC_URL}/dashboard/ecommerce`, title: 'Ecommerce', type: 'link' },
+                
+            },
+            {
+                icon: Users, type: 'sub',badge: "badge badge-success", active: false,
+                path: `/dashboard/userss/`, title: 'Пользователи', type: 'link'
+                
+            },
+            {
+                icon: MessageCircle, type: 'sub',badge: "badge badge-success", active: false,
+                path: `/dashboard/users/`, title: 'Обращения о помощи', type: 'link'
+                
+            },
+            {
+                icon: ShoppingBag, type: 'sub',badge: "badge badge-success", active: false,
+                path: `/dashboard/pricing/`, title: 'Ценообразование', type: 'link'
+                
+            },
+            {
+                icon: GitPullRequest, type: 'sub',badge: "badge badge-success", active: false,
+                path: `/dashboard/file-panel/`, title: 'Файловый менеджер', type: 'link'
+                
+            },
+            {
+                icon: Command, type: 'sub',badge: "badge badge-success", active: false,
+                path: `/dashboard/role-panel/`, title: 'Ролевой менеджер', type: 'link'
+                
+            },
+            {
+                icon: FileText, type: 'sub',badge: "badge badge-success", active: false,
+                path: `/dashboard/loyalty-blank/`, title: 'Бланки лояльности', type: 'link'
                 
             },
             // {

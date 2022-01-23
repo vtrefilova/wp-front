@@ -200,14 +200,26 @@ import Todo from "../components/application/todo-app"
 
 // todo-firebase-app
 import TodoFirebase from "../components/application/todo-firebase-app"
-import BaseCategory from '../components/base-category/BaseCategory'
+import BaseCategory from '../components/Base Category/BaseCategory'
 import Error404 from '../pages/errors/error404'
+import UsersList from '../components/users-list/UsersList'
+import PriceList from '../components/Price List/PriceList'
+import FilePanel from '../components/File Panel/FilePanel'
+import RoleManager from '../components/Role Manager/RoleManager'
+import RoleEditor from '../components/Role Editor/RoleEditor'
+import CardBlank from '../components/Card Blank/CardBlank'
 
 
 export const routes = [
         { path:"/dashboard/main/", Component:Default},
         { path:"/dashboard/base-category/", Component:BaseCategory},
-        { path:"/dashboard/ecommerce/", Component:Ecommerce},
+        { path:"/dashboard/users/", Component:UsersList},
+        { path:"/dashboard/pricing/", Component:PriceList},
+        { path:"/dashboard/file-panel/", Component:FilePanel},
+        { path:"/dashboard/role-panel/", Component:RoleManager},
+        { path:"/dashboard/role-editor/:id", Component:RoleEditor},
+        { path:"/dashboard/loyalty-blank/", Component:CardBlank},
+        // { path:"/dashboard/ecommerce/", Component:Ecommerce},
 
         // { path:"/widgets/general/", Component:GeneralWidget},
         // { path:"/widgets/chart/", Component:ChartsWidget},

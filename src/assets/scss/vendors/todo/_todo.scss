@@ -233,6 +233,10 @@
         }
         &.new .task-container {
           animation: taskHighlighter 2000ms linear 1;
+
+          &.no-anim {
+            animation: none;
+          }
         }
       }
     }
