@@ -14,16 +14,16 @@ export const MENUITEMS = [
                 path: `/dashboard/base-category/`, title: 'Базовые категории', type: 'link'
                 
             },
-            {
-                icon: Users, type: 'sub',badge: "badge badge-success", active: false,
-                path: `/dashboard/userss/`, title: 'Пользователи', type: 'link'
+            // {
+            //     icon: Users, type: 'sub',badge: "badge badge-success", active: false,
+            //     path: `/dashboard/users/`, title: 'Пользователи', type: 'link'
                 
-            },
-            {
-                icon: MessageCircle, type: 'sub',badge: "badge badge-success", active: false,
-                path: `/dashboard/users/`, title: 'Обращения о помощи', type: 'link'
+            // },
+            // {
+            //     icon: MessageCircle, type: 'sub',badge: "badge badge-success", active: false,
+            //     path: `/dashboard/users/`, title: 'Обращения о помощи', type: 'link'
                 
-            },
+            // },
             {
                 icon: ShoppingBag, type: 'sub',badge: "badge badge-success", active: false,
                 path: `/dashboard/pricing/`, title: 'Ценообразование', type: 'link'
