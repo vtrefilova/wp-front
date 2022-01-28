@@ -14,11 +14,11 @@ export const MENUITEMS = [
                 path: `/dashboard/base-category/`, title: 'Базовые категории', type: 'link'
                 
             },
-            // {
-            //     icon: Users, type: 'sub',badge: "badge badge-success", active: false,
-            //     path: `/dashboard/users/`, title: 'Пользователи', type: 'link'
+            {
+                icon: Users, type: 'sub',badge: "badge badge-success", active: false,
+                path: `/dashboard/users/`, title: 'Пользователи', type: 'link'
                 
-            // },
+            },
             // {
             //     icon: MessageCircle, type: 'sub',badge: "badge badge-success", active: false,
             //     path: `/dashboard/users/`, title: 'Обращения о помощи', type: 'link'
@@ -42,6 +42,11 @@ export const MENUITEMS = [
             {
                 icon: FileText, type: 'sub',badge: "badge badge-success", active: false,
                 path: `/dashboard/loyalty-blank/`, title: 'Бланки лояльности', type: 'link'
+                
+            },
+            {
+                icon: Image, type: 'sub',badge: "badge badge-success", active: false,
+                path: `/dashboard/notifications/`, title: 'Отправка уведомлений', type: 'link'
                 
             },
             // {

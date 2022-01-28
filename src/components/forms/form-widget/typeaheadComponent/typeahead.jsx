@@ -82,7 +82,7 @@ const TypeaheadComp = () => {
                                                     allowNew
                                                     multiple
                                                     newSelectionPrefix="Add a new item: "
-                                                    options={[]}
+                                                    options={["testa", "testa", "tests"]}
                                                     placeholder="Type anything..."
                                                 />
                                             </FormGroup>

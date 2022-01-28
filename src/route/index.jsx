@@ -208,17 +208,25 @@ import FilePanel from '../components/File Panel/FilePanel'
 import RoleManager from '../components/Role Manager/RoleManager'
 import RoleEditor from '../components/Role Editor/RoleEditor'
 import CardBlank from '../components/Card Blank/CardBlank'
+import Notification from '../components/Notification/Notification'
+import User from '../components/User/User';
+import UserPanel from '../components/User Panel/UserPanel'
 
 
 export const routes = [
         { path:"/dashboard/main/", Component:Default},
         { path:"/dashboard/base-category/", Component:BaseCategory},
-        { path:"/dashboard/users/", Component:UsersList},
+        { path:"/dashboard/users/", Component:User},
+        { path:"/dashboard/user/:id", Component:UserPanel},
         { path:"/dashboard/pricing/", Component:PriceList},
         { path:"/dashboard/file-panel/", Component:FilePanel},
         { path:"/dashboard/role-panel/", Component:RoleManager},
         { path:"/dashboard/role-editor/:id", Component:RoleEditor},
         { path:"/dashboard/loyalty-blank/", Component:CardBlank},
+        { path:"/dashboard/notifications/", Component:Notification},
+
+
+
         // { path:"/dashboard/ecommerce/", Component:Ecommerce},
 
         // { path:"/widgets/general/", Component:GeneralWidget},
