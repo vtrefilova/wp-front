@@ -2,14 +2,12 @@ import request from "./request";
 import { toast } from 'react-toastify';
 
 const API_uploadFile = async (
-    name,
     file,
     tag
 ) => {
     try {
         const data = new FormData();
 
-        data.append("name", name);
         data.append("file", file);
         data.append("tag", tag);
 

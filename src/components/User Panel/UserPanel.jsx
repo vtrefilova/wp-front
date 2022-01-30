@@ -1,9 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
+import { Card, CardBody, CardHeader, Row, Col, Container } from 'reactstrap';
+import Breadcrumbs from '../../layout/breadcrumb';
 
 import './UserPanel.scss';
 
 import API_getUserById from '../../api/getUserById';
+import UserPanelBaseInformation from './Base Information/UserPanelBaseInformation';
+import UserPanelCategories from './Categories/UserPanelCategories';
+import UserPanelSubscription from './Subscription/UserPanelSubscription';
+import UserPanelLoyaltyCards from './Loyalty Cards/UserPanelLoyaltyCards';
+import UserPanelBills from './Bills/UserPanelBills';
+import UserPanelTransactions from './Transactions/UserPanelTransactions';
 
 const UserPanel = () => {
     const { id } = useParams();
@@ -15,7 +23,7 @@ const UserPanel = () => {
     const getUserData = async () => {
         const data = await API_getUserById(id);
 
-        if(data)
+        if (data)
             setUserData(data);
         else
             history.replace("/dashboard/users/");
@@ -34,9 +42,38 @@ const UserPanel = () => {
     }, [])
 
     return (
-        <div>
-            panel
-        </div>
+        <>
+            <Breadcrumbs parent="Панель управления" title="Управление пользователем" />
+            <Container fluid={true}>
+                <Row>
+                    <Col xl={5}>
+                        <UserPanelBaseInformation user={userData} />
+                    </Col>
+
+                    <Col xl={4}>
+                        <UserPanelSubscription user={userData} />
+                    </Col>
+
+                    <Col xl={3}>
+                        <UserPanelCategories user={userData} />
+                    </Col>
+                </Row>
+
+                <Row>
+                    <Col xl={3}>
+                        <UserPanelLoyaltyCards user={userData} />
+                    </Col>
+
+                    <Col xl={3}>
+                        <UserPanelBills user={userData} />
+                    </Col>
+
+                    <Col xl={6}>
+                        <UserPanelTransactions user={userData} />
+                    </Col>
+                </Row>
+            </Container>
+        </>
     );
 }
 

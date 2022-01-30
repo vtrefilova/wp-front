@@ -1,0 +1,32 @@
+.help-card {
+    max-height: 350px;
+}
+
+.help-lead-data-row {
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: start;
+    column-gap: 15px;
+    margin-bottom: 10px;
+
+    .help-lead-data-title {
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    .help-lead-data-value {
+        font-size: 14px;
+        font-weight: 600;
+        word-wrap: break-word;
+        word-break: break-all;
+    }
+}
+
+.help-lead-pagination-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 10px;
+}

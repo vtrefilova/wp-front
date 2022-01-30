@@ -56,7 +56,7 @@ const FilePanel = () => {
         if (tag == null)
             return toast.error("Выберите тег");
 
-        const result = await API_uploadFile(files[0].meta.name, files[0].file, tag);
+        const result = await API_uploadFile(files[0].file, tag);
 
         if (result) {
             setSelectedImageType(0);
@@ -180,7 +180,7 @@ const FilePanel = () => {
                                             !load ? categories[selectedCategory].data.length ? categories[selectedCategory].data.map((item, idx) => (
                                                 <li key={idx} className="file-box">
                                                     <div className="file-top" style={{
-                                                        backgroundImage: `url('http://92.255.109.54/api/v1/image/content/${item.name}/')`,
+                                                        backgroundImage: `url('http://46.30.41.45/api/v1/image/content/${item.name}/')`,
                                                         backgroundSize: 'contain',
                                                         backgroundRepeat: 'no-repeat',
                                                         backgroundPosition: 'center'

@@ -211,6 +211,9 @@ import CardBlank from '../components/Card Blank/CardBlank'
 import Notification from '../components/Notification/Notification'
 import User from '../components/User/User';
 import UserPanel from '../components/User Panel/UserPanel'
+import ErrorLogs from '../components/Error Logs/ErrorLogs'
+import AdminLogs from '../components/Admin Logs/AdminLogs'
+import HelpLeads from '../components/Help Leads/HelpLeads'
 
 
 export const routes = [
@@ -224,9 +227,12 @@ export const routes = [
         { path:"/dashboard/role-editor/:id", Component:RoleEditor},
         { path:"/dashboard/loyalty-blank/", Component:CardBlank},
         { path:"/dashboard/notifications/", Component:Notification},
+        { path:"/dashboard/error-logs/", Component:ErrorLogs},
+        { path:"/dashboard/admin-logs/", Component:AdminLogs},
+        { path:"/dashboard/help-leads/", Component:HelpLeads},
 
 
-
+        
         // { path:"/dashboard/ecommerce/", Component:Ecommerce},
 
         // { path:"/widgets/general/", Component:GeneralWidget},

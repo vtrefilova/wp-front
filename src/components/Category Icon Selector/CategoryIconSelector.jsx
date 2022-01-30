@@ -25,8 +25,6 @@ const CategoryIconSelector = ({
 
         setIconList(data);
 
-        console.log(data);
-        
         setLoad(false);
     }
 
@@ -46,7 +44,7 @@ const CategoryIconSelector = ({
                                 setIcon(ico);
                                 toggleShow();
                             }} key={idx} className="category-icon-block-container">
-                                <img className="category-icon-preview" src={`http://92.255.109.54/api/v1/image/content/${ico.name}/`} />
+                                <img className="category-icon-preview" src={`http://46.30.41.45/api/v1/image/content/${ico.name}/`} />
                             </div>
                         ))
                     }

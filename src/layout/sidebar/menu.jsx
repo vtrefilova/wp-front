@@ -19,11 +19,11 @@ export const MENUITEMS = [
                 path: `/dashboard/users/`, title: 'Пользователи', type: 'link'
                 
             },
-            // {
-            //     icon: MessageCircle, type: 'sub',badge: "badge badge-success", active: false,
-            //     path: `/dashboard/users/`, title: 'Обращения о помощи', type: 'link'
+            {
+                icon: MessageCircle, type: 'sub',badge: "badge badge-success", active: false,
+                path: `/dashboard/help-leads/`, title: 'Обращения помощи', type: 'link'
                 
-            // },
+            },
             {
                 icon: ShoppingBag, type: 'sub',badge: "badge badge-success", active: false,
                 path: `/dashboard/pricing/`, title: 'Ценообразование', type: 'link'
@@ -47,6 +47,16 @@ export const MENUITEMS = [
             {
                 icon: Image, type: 'sub',badge: "badge badge-success", active: false,
                 path: `/dashboard/notifications/`, title: 'Отправка уведомлений', type: 'link'
+                
+            },
+            {
+                icon: Box, type: 'sub',badge: "badge badge-success", active: false,
+                path: `/dashboard/error-logs/`, title: 'Логи ошибок', type: 'link'
+                
+            },
+            {
+                icon: Box, type: 'sub',badge: "badge badge-success", active: false,
+                path: `/dashboard/admin-logs/`, title: 'Логи админов', type: 'link'
                 
             },
             // {

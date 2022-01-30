@@ -65,7 +65,7 @@ const CreateCardBlank = ({
                             <Label className="col-form-label pt-0" >Изображение бланка</Label>
                             <div onClick={toggleImageSelector} className={`create-card-blank-image-container pointer ${selectedImage ? "" : "b-light"}`}>
                                 {selectedImage ? (
-                                    <img className="card-image-preview" src={`http://92.255.109.54/api/v1/image/content/${selectedImage.name}/`} />
+                                    <img className="card-image-preview" src={`http://46.30.41.45/api/v1/image/content/${selectedImage.name}/`} />
                                 ) : (<p style={{
                                     textAlign: 'center'
                                 }}>

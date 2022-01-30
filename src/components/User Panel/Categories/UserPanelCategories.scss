@@ -1,0 +1,41 @@
+.user-panel-category-container {
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: space-between;
+    align-items: center;
+
+    .user-panel-category-item {
+        font-weight: 500;
+        font-size: 18px;
+    }
+
+    .user-panel-category-color {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+    }
+
+    .user-panel-category-icon-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: max-content max-content;
+        cursor: pointer;
+        justify-items: center;
+        background-color: red;
+
+        .user-panel-category-icon-preview {
+            width: 32px;
+            height: 32px;
+            object-fit: cover;
+        }
+    }
+
+    .user-panel-category-actions {
+        display: grid;
+        align-items: center;
+        grid-auto-flow: column;
+        column-gap: 5px;
+        font-size: 18px;
+    }
+}
+
