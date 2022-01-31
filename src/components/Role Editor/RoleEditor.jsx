@@ -31,6 +31,7 @@ const RoleEditor = () => {
 
     const [roleName, setRoleName] = useState("Нет");
     const [isAdmin, setIsAdmin] = useState(false);
+    const [roleForBlocked, setRoleForBlocked] = useState(false);
     const [roleAfterBuy, setRoleAfterBuy] = useState(false);
     const [autoApply, setAutoApply] = useState(false);
     const [roleAfterBuyExpiration, setRoleAfterBuyExpiration] = useState(false);
@@ -95,6 +96,7 @@ const RoleEditor = () => {
             isAdmin,
             roleAfterBuy,
             roleAfterBuyExpiration,
+            roleForBlocked,
             id
         );
 
@@ -207,6 +209,10 @@ const RoleEditor = () => {
                                         <div className="checkbox checkbox-primary">
                                             <Input value={roleAfterBuyExpiration} onChange={() => setRoleAfterBuyExpiration(!roleAfterBuyExpiration)} checked={roleAfterBuyExpiration} id="inline-form-4" type="checkbox" />
                                             <Label className="mb-0" htmlFor="inline-form-4">Роль после истечения подписки</Label>
+                                        </div>
+                                        <div className="checkbox checkbox-primary">
+                                            <Input value={roleForBlocked} onChange={() => setRoleForBlocked(!roleForBlocked)} checked={roleForBlocked} id="inline-form-4" type="checkbox" />
+                                            <Label className="mb-0" htmlFor="inline-form-4">Роль после блокировки</Label>
                                         </div>
                                     </CardBody>
 

@@ -7,6 +7,7 @@ const API_updateUserRole = async (
     isAdmin,
     roleAfterBuy,
     roleAfterBuyExpiration,
+    roleForBlocked,
     id
 ) => {
     try {
@@ -15,6 +16,7 @@ const API_updateUserRole = async (
             'autoApply': autoApply,
             'isAdmin': isAdmin,
             'roleAfterBuy': roleAfterBuy,
+            roleForBlocked,
             'roleAfterBuyExpiration': roleAfterBuyExpiration
         });
 
