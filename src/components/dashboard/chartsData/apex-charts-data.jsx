@@ -104,7 +104,7 @@ export const Currentlysale = {
 
 export const Marketvalue = {
   series: [{
-    name: 'Market value',
+    name: 'Зарегистрированно',
     data: [20, 100, 40, 30, 50, 80, 33],
   }],
   options: {
@@ -119,7 +119,7 @@ export const Marketvalue = {
       width: 3,
       curve: 'smooth',
     },
-    labels: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+    labels: ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'],
     plotOptions: {
       radar: {
         size: 140,

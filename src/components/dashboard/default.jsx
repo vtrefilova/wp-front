@@ -4,20 +4,21 @@ import { Container, Row, Col, Card, CardHeader, CardBody } from 'reactstrap'
 import DatePicker from "react-datepicker";
 import ApexCharts from 'react-apexcharts'
 import ChartistChart from 'react-chartist';
+import Chart from 'react-apexcharts'
 import Knob from "knob";
 import { Currentlysale, Marketvalue } from './chartsData/apex-charts-data'
 import { smallchart1data, smallchart1option, smallchart2data, smallchart2option, smallchart3data, smallchart3option, smallchart4data, smallchart4option } from './chartsData/chartist-charts-data'
 import { Send, Clock } from 'react-feather';
-import {Dashboard,Summary,NewsUpdate,Appointment,Notification,MarketValue,Chat,New,Tomorrow,Yesterday,Daily,Weekly,Monthly,Store,Online,ReferralEarning,CashBalance,SalesForcasting,Purchase,Sales,SalesReturn,PurchaseRet,PurchaseOrderValue,ProductOrderValue,Pending,Yearly,Hot,Today,VenterLoren,Done,JohnLoren,Year,Month,Day,RightNow} from '../../constant'
+import { Dashboard, Summary, NewsUpdate, Appointment, Notification, MarketValue, Chat, New, Tomorrow, Yesterday, Daily, Weekly, Monthly, Store, Online, ReferralEarning, CashBalance, SalesForcasting, Purchase, Sales, SalesReturn, PurchaseRet, PurchaseOrderValue, ProductOrderValue, Pending, Yearly, Hot, Today, VenterLoren, Done, JohnLoren, Year, Month, Day, RightNow } from '../../constant'
 
 
 const Default = (props) => {
 
-  const [daytimes,setDayTimes] = useState()
+  const [daytimes, setDayTimes] = useState()
   const today = new Date()
   const curHr = today.getHours()
   const curMi = today.getMinutes()
-  const [meridiem,setMeridiem] = useState("AM")
+  const [meridiem, setMeridiem] = useState("AM")
   // eslint-disable-next-line
   const [date, setDate] = useState({ date: new Date() });
   // eslint-disable-next-line
@@ -27,21 +28,21 @@ const Default = (props) => {
   };
 
   useEffect(() => {
- 
+
     if (curHr < 12) {
       setDayTimes('Good Morning')
-    }else if (curHr < 18) {
+    } else if (curHr < 18) {
       setDayTimes('Good Afternoon')
-    }else {
+    } else {
       setDayTimes('Good Evening')
     }
 
-    if(curHr >= 12){
-     setMeridiem('PM')
-    }else{
+    if (curHr >= 12) {
+      setMeridiem('PM')
+    } else {
       setMeridiem('AM')
     }
-    
+
     var ordervalue1 = Knob({
       value: 60,
       angleOffset: 0,
@@ -73,9 +74,112 @@ const Default = (props) => {
     // eslint-disable-next-line
   }, [])
 
+  const options = {
+    chart: {
+      type: 'area',
+      height: 350,
+      zoom: {
+        enabled: false
+      }
+    },
+    dataLabels: {
+      enabled: false
+    },
+    stroke: {
+      curve: 'straight'
+    },
+
+    title: {
+      text: 'Количество зарегистрированных пользователей',
+      align: 'left'
+    },
+    subtitle: {
+      text: 'За сегодня',
+      align: 'left'
+    },
+    colors: ["#ff00ff"],
+    labels: ["00:00", "01:00", "02:00", "03:00", "04:00", "05:00", "06:00", "07:00", "08:00", "09:00", "010:00", "11:00", "12:00", "13:00", "14:00", "15:00"],
+    xaxis: {
+      type: 'string',
+    },
+    yaxis: {
+      opposite: true
+    },
+    legend: {
+      horizontalAlign: 'left'
+    }
+  }
+
+  const series = [
+    {
+      name: "STOCK ABC",
+      data: [10, 20, 30, 40, 10, 20, 30, 40, 10, 20, 30, 40, 10, 20, 30, 40]
+    }];
+
   return (
     <Fragment>
       <Breadcrumb parent="Панель управления" title="Главная" />
+      <Container fluid={true}>
+        <Row>
+          <Col xl={6}>
+            <Card>
+              <CardHeader>
+                <h6 className="card-title mb-0">
+                  Зарегистрированных за сегодня
+                </h6>
+              </CardHeader>
+
+              <CardBody>
+                
+              </CardBody>
+            </Card>
+          </Col>
+
+          <Col xl={6}>
+            <Card>
+              <CardHeader>
+                <h6 className="card-title mb-0">
+                  Зарегистрированных за неделю
+                </h6>
+              </CardHeader>
+
+              <CardBody>
+                <ApexCharts id="marketchart" options={Marketvalue.options} series={Marketvalue.series} type='radar' height={300} />
+              </CardBody>
+            </Card>
+          </Col>
+        </Row>
+
+        <Row>
+          <Col xl={12}>
+            <Card>
+              <CardHeader>
+                <h6 className="card-title mb-0">
+                  Активность на экранах
+                </h6>
+              </CardHeader>
+
+              <CardBody>
+              </CardBody>
+            </Card>
+          </Col>
+        </Row>
+
+        <Row>
+          <Col xl={12}>
+            <Card>
+              <CardHeader>
+                <h6 className="card-title mb-0">
+                  Статистика по рекламе
+                </h6>
+              </CardHeader>
+
+              <CardBody>
+              </CardBody>
+            </Card>
+          </Col>
+        </Row>
+      </Container>
       {/* <Container fluid={true}>
         <Row className="second-chart-list third-news-update">
           <Col xl="4 xl-50" lg="12" className="morning-sec box-col-12">
@@ -84,8 +188,8 @@ const Default = (props) => {
                 <div className="media">
                   <div className="badge-groups w-100">
                     <div className="badge f-12">
-                      <Clock style={{width:"16px" ,height:"16px"}} className="mr-1"/>
-                      <span id="txt">{curHr}:{curMi < 10 ? "0"+curMi :curMi} {meridiem}</span>
+                      <Clock style={{ width: "16px", height: "16px" }} className="mr-1" />
+                      <span id="txt">{curHr}:{curMi < 10 ? "0" + curMi : curMi} {meridiem}</span>
                     </div>
                     <div className="badge f-12"><i className="fa fa-spin fa-cog f-14"></i></div>
                   </div>
@@ -375,7 +479,7 @@ const Default = (props) => {
                 <Card>
                   <CardHeader className="card-no-border">
                     <div className="header-top">
-                          <h5 className="m-0">{Appointment}</h5>
+                      <h5 className="m-0">{Appointment}</h5>
                       <div className="card-header-right-icon">
                         <select className="button btn btn-primary">
                           <option>{Today}</option>
