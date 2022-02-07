@@ -39,7 +39,7 @@ const CategoryIconSelector = ({
                     <Preloader />
                     ) : (<div className="category-icon-selector-icons-list">
                     {
-                        iconList.map((ico, idx) => (
+                        iconList && iconList.map((ico, idx) => (
                             <div onClick={() => {
                                 setIcon(ico);
                                 toggleShow();

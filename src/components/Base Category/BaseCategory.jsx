@@ -143,7 +143,7 @@ const BaseCategory = () => {
                                     <div className="todo-list-container">
                                         <div className="todo-list-body">
                                             <ul id="todo-list">
-                                                {data[activePage].map((category, idx) => (<li key={idx} className={"task"} >
+                                                {data && data[activePage] && data[activePage].map((category, idx) => (<li key={idx} className={"task"} >
                                                     <div className="task-container">
                                                         <div className="task-data-container">
                                                             <h4 className="task-label">{category.name}</h4>

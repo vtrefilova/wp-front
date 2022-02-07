@@ -1,16 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import man from '../assets/images/dashboard/profile.jpg';
 import { Container, Row, Col, Form, FormGroup, Input, Label, Button, NavItem, NavLink, Nav, TabContent, TabPane } from 'reactstrap'
-import { firebase_app, googleProvider, facebookProvider, githubProvider, Jwt_token } from '../data/config'
-import { handleResponse } from '../services/fack.backend'
-import { useAuth0 } from '@auth0/auth0-react'
-import { toast } from 'react-toastify';
 import { Redirect, useHistory, withRouter } from 'react-router-dom'
-import { Facebook, GitHub } from 'react-feather'
-import { Password, SignIn, EmailAddress, RememberPassword, ForgotPassword, CreateAccount, FIREBASE, AUTH0, JWT, LoginWithJWT } from '../constant';
-import LogoSVG from '../assets/images/logo/logo.svg';
-import LogoDarkSVG from '../assets/images/logo/logo.svg';
-import API_authUser from '../api/auth.js';
+import LogoSVG from '../../assets/images/logo/logo.svg';
+import LogoDarkSVG from '../../assets/images/logo/logo.svg';
+import API_authUser from '../../api/auth.js';
 
 const Logins = (props) => {
 

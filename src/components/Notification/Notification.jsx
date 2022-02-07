@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 import Preloader from '../preloader/Preloader';
 
 import './Notification.scss';
-import API_findUsers from '../../api/findUsersByPhone';
+import API_findUsers from '../../api/findUsers';
 import API_getUserById from '../../api/getUserById';
 import API_sendNotificationForOne from '../../api/sendNotificationForOne';
 import API_sendNotificationForAll from '../../api/sendNotificationForAll';
