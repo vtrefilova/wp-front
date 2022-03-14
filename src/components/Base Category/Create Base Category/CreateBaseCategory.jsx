@@ -36,7 +36,7 @@ const CreateBaseCategory = ({
         if(!name.length)
             return toast.error("Введите название категории.");
 
-        if(name.length < 4 || name.length > 64)
+        if(name.length < 1 || name.length > 64)
             return toast.error("Минимальная длина названия категории 4, максимальная 64.");
 
         if(!selectedColor)
