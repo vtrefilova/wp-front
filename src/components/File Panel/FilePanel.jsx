@@ -180,7 +180,7 @@ const FilePanel = () => {
                                             !load ? categories[selectedCategory].data.length ? categories[selectedCategory].data.map((item, idx) => (
                                                 <li key={idx} className="file-box">
                                                     <div className="file-top" style={{
-                                                        backgroundImage: `url('http://46.30.41.45/api/v1/image/content/${item.name}/')`,
+                                                        backgroundImage: `url('http://188.225.45.41/api/v1/image/content/${item.name}/')`,
                                                         backgroundSize: 'contain',
                                                         backgroundRepeat: 'no-repeat',
                                                         backgroundPosition: 'center'

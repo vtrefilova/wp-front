@@ -101,7 +101,7 @@ const LoyaltyBlank = () => {
                                         <i onClick={() => removeBlank(item.id)} className="icon-trash pointer"></i>
                                     </div>
 
-                                    {item.image ? <img src={`http://46.30.41.45/api/v1/image/content/${item.image.name}/`} className='card-blank-image' />
+                                    {item.image ? <img src={`http://188.225.45.41/api/v1/image/content/${item.image.name}/`} className='card-blank-image' />
                                         :
                                         <p className="card-blank-no-image">
                                             Изображение отсутствует
