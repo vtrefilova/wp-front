@@ -11,6 +11,7 @@ const API_authUser = async (username, password) => {
 
         return req.data.data;
     } catch(e) {
+        console.log("tesst");
         toast.error("Проверьте правильность данных.");
 
         return null;

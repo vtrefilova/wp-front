@@ -4,7 +4,7 @@ import { Redirect, useHistory, withRouter } from 'react-router-dom'
 import LogoSVG from '../../assets/images/logo/logo.svg';
 import LogoDarkSVG from '../../assets/images/logo/logo.svg';
 import API_authUser from '../../api/auth.js';
-import { toast } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
 
 const Logins = (props) => {
 
@@ -38,6 +38,7 @@ const Logins = (props) => {
 
   return (
     <Container fluid={true} className="p-0">
+      <ToastContainer />
       <Row>
         <Col xs="12">
           <div className="login-card">
