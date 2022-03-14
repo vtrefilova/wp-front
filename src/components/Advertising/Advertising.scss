@@ -1,0 +1,88 @@
+.ad-card-header-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.ad-card-list {
+    max-height: 500px;
+    overflow: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 300px);
+    justify-content: space-between;
+    column-gap: 15px;
+    padding: 15px;
+
+    .ad-card-container {
+        padding: 10px;
+        display: grid;
+        width: 100%;
+
+        .ad-card-bottom-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        .ad-card-image-container {
+            height: 120px;
+            width: 100%;
+            display: grid;
+            justify-items: end;
+
+            .ad-card-no-image {
+                display: grid;
+                justify-self: center;
+                align-self: center;
+            }
+
+            .ad-card-image {
+                width: 100%;
+                height: 120px;
+                object-fit: contain;
+            }
+        
+            .ad-card-actions-container {
+                position: absolute;
+                display: grid;
+                grid-template-columns: max-content max-content;
+                grid-template-rows: max-content;
+                column-gap: 10px;
+                
+                i {
+                    position: relative;
+                    bottom: 7px;
+                }
+            }
+        }
+
+        .ad-card-info-container {
+            width: 100%;
+            margin-top: 10px;
+            display: grid;
+            grid-auto-flow: row;
+            row-gap: 5px;
+            margin-bottom: 10px;
+
+            .ad-card-info-row-block {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                align-items: center;
+                grid-template-rows: max-content;
+
+                .ad-card-info-title {
+                    font-size: 15px;
+                    font-weight: 500;
+                }
+
+                .ad-card-info-value {
+                    display: grid;
+                    justify-content: end;
+                    font-size: 15px;
+                }
+            }            
+        }
+    }
+}

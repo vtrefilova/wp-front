@@ -1,0 +1,23 @@
+.edit-card-blank-image-container {
+    width: 160px;
+    height: 100px;
+    object-fit: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .card-image-preview {
+        width: 160px;
+        height: 100px;
+        object-fit: cover;
+    }
+}
+
+.edit-card-blank-footer-block {
+    display: grid;
+    width: 100%;
+    grid-template-columns: max-content max-content;
+    grid-template-rows: max-content;
+    justify-content: end;
+    column-gap: 15px;
+}

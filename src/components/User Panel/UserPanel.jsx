@@ -12,6 +12,7 @@ import UserPanelSubscription from './Subscription/UserPanelSubscription';
 import UserPanelLoyaltyCards from './Loyalty Cards/UserPanelLoyaltyCards';
 import UserPanelBills from './Bills/UserPanelBills';
 import UserPanelTransactions from './Transactions/UserPanelTransactions';
+import UserPanelActivity from './Activity/UserPanelActivity';
 
 const UserPanel = () => {
     const { id } = useParams();
@@ -70,6 +71,12 @@ const UserPanel = () => {
 
                     <Col xl={6}>
                         <UserPanelTransactions user={userData} />
+                    </Col>
+                </Row>
+
+                <Row>
+                    <Col xl={12}>
+                        <UserPanelActivity user={userData} />
                     </Col>
                 </Row>
             </Container>

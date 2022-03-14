@@ -47,9 +47,9 @@ const EditBaseCategory = ({
         if(!name.length)
             return toast.error("Введите название категории.");
 
-        if(name.length < 4 || name.length > 64)
-            return toast.error("Минимальная длина названия категории 4, максимальная 64.");
-
+        if(name.length < 2 || name.length > 64)
+            return toast.error("Минимальная длина названия категории 2, максимальная 64.");
+            
         if(!selectedColor)
             return toast.error("Выберите цвет категории");
 
@@ -100,7 +100,7 @@ const EditBaseCategory = ({
                                 <div onClick={toggleShowIconSelector} className="selected-icon-container">
                                     <div className={`selected-icon-block`}>
                                         {selectedIcon &&
-                                            <img className="selected-icon-preview" src={`http://188.225.45.41/api/v1/image/content/${selectedIcon.name}/`} />}
+                                            <img className="selected-icon-preview" src={`http://46.30.41.45/api/v1/image/content/${selectedIcon.name}/`} />}
                                     </div>
                                     <small className="form-text text-muted">{selectedIcon ? "" : "Нет"}</small>
                                 </div>

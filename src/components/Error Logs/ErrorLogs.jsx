@@ -22,8 +22,6 @@ const ErrorLogs = () => {
             setTotal(result.total);
             setLogs(result.page);
         }
-
-        console.log(result);
     }
 
     useEffect(() => {
@@ -101,8 +99,8 @@ const ErrorLogs = () => {
                     <Pagination className="pagination pagination-primary" aria-label="Page navigation example">
                         <PaginationItem onClick={prevPage}><PaginationLink>Назад</PaginationLink></PaginationItem>
                         {
-                            new Array(Math.ceil(total / pageSize)).fill(" ").map((_, idx) => (
-                                <PaginationItem onClick={() => selectPage(idx + 1)} active={idx === page - 1} key={idx}><PaginationLink>{idx + 1}</PaginationLink></PaginationItem>
+                            new Array(10).fill(" ").map((_, idx) => page + idx < (Math.ceil(total / pageSize) + 1) && (
+                                <PaginationItem onClick={() => selectPage(page + idx)} active={page + idx === page} key={idx}><PaginationLink>{page + idx}</PaginationLink></PaginationItem>
                             ))
                         }
                         <PaginationItem onClick={nextPage}><PaginationLink>Вперед</PaginationLink></PaginationItem>

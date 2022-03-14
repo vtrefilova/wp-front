@@ -59,6 +59,11 @@ export const MENUITEMS = [
                 path: `/dashboard/admin-logs/`, title: 'Логи админов', type: 'link'
                 
             },
+            {
+                icon: BarChart, type: 'sub',badge: "badge badge-success", active: false,
+                path: `/dashboard/ads/`, title: 'Реклама', type: 'link'
+                
+            },
             // {
             //     title: 'Widgets', icon: Airplay, type: 'sub', active: false, children: [
             //         { path: `${process.env.PUBLIC_URL}/widgets/general`, title: 'General', type: 'link' },

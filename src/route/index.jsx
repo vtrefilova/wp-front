@@ -12,10 +12,12 @@ import UserPanel from '../components/User Panel/UserPanel'
 import ErrorLogs from '../components/Error Logs/ErrorLogs'
 import AdminLogs from '../components/Admin Logs/AdminLogs'
 import HelpLeads from '../components/Help Leads/HelpLeads'
+import Advertising from '../components/Advertising/Advertising'
 
 
 export const routes = [
         { path:"/dashboard/main/", Component:Default},
+        { path:"/dashboard/ads/", Component:Advertising},
         { path:"/dashboard/base-category/", Component:BaseCategory},
         { path:"/dashboard/users/", Component:User},
         { path:"/dashboard/user/:id", Component:UserPanel},
