@@ -4,6 +4,7 @@ import { Redirect, useHistory, withRouter } from 'react-router-dom'
 import LogoSVG from '../../assets/images/logo/logo.svg';
 import LogoDarkSVG from '../../assets/images/logo/logo.svg';
 import API_authUser from '../../api/auth.js';
+import { toast } from 'react-toastify';
 
 const Logins = (props) => {
 
@@ -23,6 +24,8 @@ const Logins = (props) => {
       localStorage.setItem("user", JSON.stringify(authData.user));
 
       window.location.reload();
+    } else {
+      toast.error("Неверный логин или пароль");
     }
   }
 
