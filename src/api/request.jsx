@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const request = axios.create({
-    baseURL: "http://188.225.45.41/api/v1/"
+    baseURL: "https://wallet-box-app.ru/api/v1/"
 });
 
 if(localStorage.getItem("token") != null)
