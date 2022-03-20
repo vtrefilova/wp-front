@@ -20,32 +20,34 @@ const Root = (props) => {
   return (
     <Fragment>
       <Provider store={store}>
-        <BrowserRouter basename={`/`}>
+        <BrowserRouter basename={`/admin`}>
           <Switch>
-            <Route path={`${process.env.PUBLIC_URL}/login`} component={Login} />
-            <Route path="/404" component={Error404} />
-            {jwt_token ?
+              <Switch>
+                <Route path={`${process.env.PUBLIC_URL}/login`} component={Login} />
+                <Route path="/404" component={Error404} />
+                {jwt_token ?
 
-              <App>
-                <TransitionGroup>
-                  {routes.map(({ path, Component }) => (
-                    <Route key={path} path={`${process.env.PUBLIC_URL}${path}`}>
-                      {({ match }) => (
-                        <CSSTransition
-                          in={match != null}
-                          timeout={100}
-                          classNames={"fade"}
-                          unmountOnExit>
-                          <div><Component /></div>
-                        </CSSTransition>
-                      )}
-                    </Route>
-                  ))}
-                </TransitionGroup>
-              </App>
-              :
-              <Redirect to={`${process.env.PUBLIC_URL}/login`} />
-            }
+                  <App>
+                    <TransitionGroup>
+                      {routes.map(({ path, Component }) => (
+                        <Route key={path} path={`${process.env.PUBLIC_URL}${path}`}>
+                          {({ match }) => (
+                            <CSSTransition
+                              in={match != null}
+                              timeout={100}
+                              classNames={"fade"}
+                              unmountOnExit>
+                              <div><Component /></div>
+                            </CSSTransition>
+                          )}
+                        </Route>
+                      ))}
+                    </TransitionGroup>
+                  </App>
+                  :
+                  <Redirect to={`${process.env.PUBLIC_URL}/login`} />
+                }
+              </Switch>
           </Switch>
         </BrowserRouter>
       </Provider>
