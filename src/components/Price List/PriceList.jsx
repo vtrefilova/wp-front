@@ -14,6 +14,7 @@ import { CSSTransition } from 'react-transition-group';
 import CreateSubscriptionVariant from './Create Subscription Variant/CreateSubscriptionVariant';
 import EditSubscriptionVariant from './Edit Subscription Variant/EditSubscriptionVariant';
 import CreateSubscriptionGroup from './Create Subscription Group/CreateSubscriptionGroup';
+import API_removeSubscriptionVariantGroup from '../../api/removeSubscriptionVariantGroup';
 
 const PriceList = () => {
 
@@ -72,6 +73,31 @@ const PriceList = () => {
 
             if (resultDelete) {
                 toast.success("Вариант подписки успешно удален.");
+                getPricingData();
+            }
+
+        }
+    }
+
+    const removeSubscriptionVariantGroup = async (id) => {
+        const result = await SweetAlert.fire({
+            title: "Удаление группы вариантов подписки",
+            text: "Вы действительно хотите удалить выбранную группу вариантов подписки?",
+            confirmButtonText: "Удалить",
+            cancelButtonText: "Отмена",
+            showCancelButton: true,
+            icon: "question"
+        });
+
+        if (result.value) {
+            setLoad(true);
+
+            const resultDelete = await API_removeSubscriptionVariantGroup(id);
+
+            setLoad(false);
+
+            if (resultDelete) {
+                toast.success("Гуппа вариантов подписки успешно удален.");
                 getPricingData();
             }
 
@@ -165,7 +191,7 @@ const PriceList = () => {
                                                 <div style={{
                                                     marginTop: 20
                                                 }} className="pricingtable-signup">
-                                                    <Button onClick={(e) => removeSubscriptionVariant(item.id)} color="primary">Удалить</Button>
+                                                    <Button onClick={(e) => removeSubscriptionVariantGroup(item.id)} color="primary">Удалить</Button>
                                                 </div>
                                             </div>
                                         </Col>
