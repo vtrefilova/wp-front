@@ -6,7 +6,8 @@ const API_createSubscriptionVariant = async (
     desc,
     price,
     newPrice,
-    expiration
+    expiration,
+    roleId
 ) => {
     try {
         const req = await request.post("subscription-variant/", {
@@ -14,7 +15,8 @@ const API_createSubscriptionVariant = async (
             description: desc,
             price,
             newPrice,
-            expiration
+            expiration,
+            roleId
         });
 
         return req.data.data;

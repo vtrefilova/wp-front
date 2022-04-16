@@ -7,33 +7,37 @@ import SweetAlert from 'sweetalert2'
 
 import API_removeSubscriptionVariant from '../../api/removeSubscriptionVariant';
 import API_getSubscriptionVariants from '../../api/getSubscriptionVariants';
+import API_getSubscriptionVariantGroups from '../../api/getSubscriptionVariantGroups';
 
 import './PriceList.scss';
 import { CSSTransition } from 'react-transition-group';
 import CreateSubscriptionVariant from './Create Subscription Variant/CreateSubscriptionVariant';
 import EditSubscriptionVariant from './Edit Subscription Variant/EditSubscriptionVariant';
+import CreateSubscriptionGroup from './Create Subscription Group/CreateSubscriptionGroup';
 
 const PriceList = () => {
 
     const [data, setData] = useState([]);
+    const [variantGroups, setVariantGroups] = useState([]);
     const [load, setLoad] = useState(true);
 
     const [selectedPrice, setSelectedPrice] = useState(null);
 
     const [showCreateSubscriptionVariant, setShowCreateSubscriptionVariant] = useState(false);
     const [showEditSubscriptionVariant, setShowEditSubscriptionVariant] = useState(false);
+    const [showCreateGroup, setShowCreateGroup] = useState(false);
 
     useEffect(() => {
         getPricingData();
     }, []);
 
     useMemo(() => {
-        if(selectedPrice)
+        if (selectedPrice)
             setShowEditSubscriptionVariant(true);
     }, [selectedPrice])
 
     useMemo(() => {
-        if(!showEditSubscriptionVariant)
+        if (!showEditSubscriptionVariant)
             setSelectedPrice(null);
     }, [showEditSubscriptionVariant])
 
@@ -42,6 +46,9 @@ const PriceList = () => {
 
         const pricingData = await API_getSubscriptionVariants();
         setData(pricingData);
+
+        const groups = await API_getSubscriptionVariantGroups();
+        setVariantGroups(groups)
 
         setLoad(false);
     }
@@ -56,14 +63,14 @@ const PriceList = () => {
             icon: "question"
         });
 
-        if(result.value) {
+        if (result.value) {
             setLoad(true);
 
             const resultDelete = await API_removeSubscriptionVariant(id);
 
             setLoad(false);
 
-            if(resultDelete) {
+            if (resultDelete) {
                 toast.success("Вариант подписки успешно удален.");
                 getPricingData();
             }
@@ -73,6 +80,7 @@ const PriceList = () => {
 
     const toggleCreateSubscriptionVariantModal = (val = null) => val ? setShowCreateSubscriptionVariant(val) : setShowCreateSubscriptionVariant(!showCreateSubscriptionVariant);
     const toggleEditSubscriptionVariantModal = (val = null) => val ? setShowEditSubscriptionVariant(val) : setShowEditSubscriptionVariant(!showEditSubscriptionVariant);
+    const toggleShowCreateGroup = (val = null) => val ? setShowCreateGroup(val) : setShowCreateGroup(!showCreateGroup);
 
     return (
         <>
@@ -88,6 +96,11 @@ const PriceList = () => {
                 toggleShow={toggleEditSubscriptionVariantModal}
                 variant={selectedPrice}
             />
+            <CreateSubscriptionGroup
+                updateData={getPricingData}
+                show={showCreateGroup}
+                toggleShow={toggleShowCreateGroup}
+            />
             <Container fluid={true}>
                 <Card>
                     <CardHeader>
@@ -96,9 +109,18 @@ const PriceList = () => {
                                 <h6 className="card-title mb-0">Варианты подписки</h6>
                             </div>
 
-                            <div className="price-list-card-header-action-container">
+                            <div style={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                flexDirection: 'row'
+                            }} className="price-list-card-header-action-container">
                                 <Button onClick={toggleCreateSubscriptionVariantModal} color="primary">
                                     <i className="icon-plus"></i></Button>
+
+                                <Button style={{
+                                    marginLeft: 10
+                                }} onClick={toggleShowCreateGroup} color="primary">
+                                    <i className="icon-plus"></i> группа</Button>
                             </div>
                         </div>
                     </CardHeader>
@@ -125,6 +147,26 @@ const PriceList = () => {
                                                 <div className="price-value"><span className="currency">{"₽"}</span><span className="amount">{item.newPrice ? item.newPrice : item.price}</span><span className="duration"> / {item.expiration} дней</span></div>
                                                 <div className="pricingtable-signup"><Button onClick={(e) => removeSubscriptionVariant(item.id)} color="primary">Удалить</Button>
                                                     <Button onClick={() => setSelectedPrice(item)} color="secondary">Изменить</Button></div>
+                                            </div>
+                                        </Col>
+                                    ))
+                                }
+                                {
+                                    variantGroups.map((item, idx) => (
+                                        <Col key={idx} className='m-10'>
+                                            <div className="pricingtable">
+                                                <div className="pricingtable-header">
+                                                    <h3 className="title">Группа {item.name}</h3>
+                                                </div>
+
+                                                <div>
+                                                    Включает: {item.variants.map((variant) => (variant.name + "\n"))}
+                                                </div>
+                                                <div style={{
+                                                    marginTop: 20
+                                                }} className="pricingtable-signup">
+                                                    <Button onClick={(e) => removeSubscriptionVariant(item.id)} color="primary">Удалить</Button>
+                                                </div>
                                             </div>
                                         </Col>
                                     ))

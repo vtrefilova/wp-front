@@ -14,6 +14,7 @@ const EditSubscriptionVariant = ({
     const [price, setPrice] = useState(0);
     const [newPrice, setNewPrice] = useState(0);
     const [expiration, setExpiration] = useState(0);
+    const [roleAfterBuy, setRoleAfterBuy] = useState("")
 
     const pullData = () => {
         if(variant) {
@@ -22,6 +23,7 @@ const EditSubscriptionVariant = ({
             setPrice(variant.price);
             setNewPrice(variant.newPrice);
             setExpiration(variant.expiration);
+            setRoleAfterBuy(variant.role.name);
         }
     }
 
@@ -89,6 +91,10 @@ const EditSubscriptionVariant = ({
                             <FormGroup>
                                 <Label className="col-form-label pt-0" >Стоимость подписки</Label>
                                 <Input value={price} onChange={(e) => setPrice(e.currentTarget.value)} className="form-control" type="number" placeholder="Введите стоимость" />
+                            </FormGroup>
+                            <FormGroup>
+                                <Label className="col-form-label pt-0" >Роль после покупки</Label>
+                                <Input value={roleAfterBuy} disabled={true} className="form-control" type="number" placeholder="Введите стоимость" />
                             </FormGroup>
                             <FormGroup>
                                 <Label className="col-form-label pt-0" >Новая стоимость подписки</Label>

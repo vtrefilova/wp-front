@@ -101,7 +101,7 @@ const LoyaltyBlank = () => {
                                         <i onClick={() => removeBlank(item.id)} className="icon-trash pointer"></i>
                                     </div>
 
-                                    {item.image ? <img src={`https://wallet-box-app.ru/api/v1/image/content/${item.image.name}/`} className='card-blank-image' />
+                                    {item.image ? <img src={`https://wallet-box-app.ru/api/api/v1/image/content/${item.image.name}/`} className='card-blank-image' />
                                         :
                                         <p className="card-blank-no-image">
                                             Изображение отсутствует

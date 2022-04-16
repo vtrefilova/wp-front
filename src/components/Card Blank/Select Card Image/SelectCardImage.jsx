@@ -44,7 +44,7 @@ const SelectCardImage = ({
                                 setImage(ico);
                                 toggleShow();
                             }} key={idx} className="card-image-block-container">
-                                <img className="card-image-preview" src={`https://wallet-box-app.ru/api/v1/image/content/${ico.name}/`} />
+                                <img className="card-image-preview" src={`https://wallet-box-app.ru/api/api/v1/image/content/${ico.name}/`} />
                             </div>
                         ))
                     }
