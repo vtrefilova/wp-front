@@ -97,7 +97,7 @@ const PriceList = () => {
             setLoad(false);
 
             if (resultDelete) {
-                toast.success("Гуппа вариантов подписки успешно удален.");
+                toast.success("Группа вариантов подписки успешно удален.");
                 getPricingData();
             }
 
