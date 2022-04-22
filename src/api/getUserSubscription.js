@@ -5,7 +5,7 @@ const API_getUserSubscription = async (
     id
 ) => {
     try {
-        const req = await request.get(`subscription/user/${id}/`);
+        const req = await request.get(`/admin/user/subscription/${id}/`);
 
         return req.data.data;
     } catch(e) {

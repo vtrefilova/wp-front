@@ -4,12 +4,8 @@ import { toast } from 'react-toastify';
 const API_getUserBills = async (
     id
 ) => {
-    const params = new URLSearchParams();
-
-    params.append("userId", id);
-
     try {
-        const req = await request.get(`bill/?` + params.toString());
+        const req = await request.get(`/admin/user/bills/` + id);
 
         return req.data.data;
     } catch(e) {

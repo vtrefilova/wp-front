@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 
 const API_removeUser = async (id) => {
     try {
-        const req = await request.delete(`user/${id}/`);
+        const req = await request.delete(`/admin/user/${id}/`);
 
         return req.data.data;
     } catch(e) {

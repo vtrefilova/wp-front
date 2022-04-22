@@ -9,11 +9,10 @@ const API_getUserActivity = async (
     try {
         const params = new URLSearchParams();
 
-        params.append("userId", id);
         params.append("startTime", startTime);
         params.append("endTime", endTime);
 
-        const req = await request.get(`activity/find?` + params.toString());
+        const req = await request.get(`/admin/user/activity/`+ id + "?" + params.toString());
 
         return req.data.data;
     } catch(e) {

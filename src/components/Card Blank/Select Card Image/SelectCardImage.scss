@@ -1,5 +1,6 @@
 .card-image-selector-images-list {
     display: grid;
+    overflow-y: auto;
     grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
     row-gap: 15px;
 

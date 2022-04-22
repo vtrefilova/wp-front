@@ -6,7 +6,7 @@ const API_resetSubscription = async (
     id
 ) => {
     try {
-        const req = await request.patch(`subscription/reset/${id}/`);
+        const req = await request.get(`/admin/user/subscription/reset/${id}/`);
 
         return req.data.data;
     } catch(e) {

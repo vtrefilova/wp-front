@@ -13,6 +13,12 @@ import UserPanelLoyaltyCards from './Loyalty Cards/UserPanelLoyaltyCards';
 import UserPanelBills from './Bills/UserPanelBills';
 import UserPanelTransactions from './Transactions/UserPanelTransactions';
 import UserPanelActivity from './Activity/UserPanelActivity';
+import UserPanelSberCards from './Sber Cards/UserPanelSberCards';
+import UserPanelSberTransactions from './Sber Transactions/UserPanelSberTransactions';
+import UserPanelTinkoffCards from './Tinkoff Cards/UserPanelTinkoffCards';
+import UserPanelTinkoffTransactions from './Tinkoff Transactions/UserPanelTinkoffTransactions';
+import UserPanelTochkaCards from './Tochka Cards/UserPanelTochkaCards';
+import UserPanelTochkaTransactions from './Tochka Transactions/UserPanelTochkaTransactions';
 
 const UserPanel = () => {
     const { id } = useParams();
@@ -61,16 +67,58 @@ const UserPanel = () => {
                 </Row>
 
                 <Row>
-                    <Col xl={3}>
+                    <Col xl={12}>
                         <UserPanelLoyaltyCards user={userData} />
                     </Col>
+                </Row>
 
-                    <Col xl={3}>
+                <Row>
+                    <Col xl={6}>
                         <UserPanelBills user={userData} />
                     </Col>
 
                     <Col xl={6}>
                         <UserPanelTransactions user={userData} />
+                    </Col>
+                </Row>
+
+                <Row>
+                    <Col xl={6}>
+                        <UserPanelSberCards user={userData} />
+                    </Col>
+
+                    <Col xl={6}>
+                        <UserPanelSberTransactions user={userData} />
+                    </Col>
+                </Row>
+
+                <Row>
+                    <Col xl={6}>
+                        <UserPanelSberCards user={userData} />
+                    </Col>
+
+                    <Col xl={6}>
+                        <UserPanelSberTransactions user={userData} />
+                    </Col>
+                </Row>
+
+                <Row>
+                    <Col xl={6}>
+                        <UserPanelTochkaCards user={userData} />
+                    </Col>
+
+                    <Col xl={6}>
+                        <UserPanelTochkaTransactions user={userData} />
+                    </Col>
+                </Row>
+
+                <Row>
+                    <Col xl={6}>
+                        <UserPanelTinkoffCards user={userData} />
+                    </Col>
+
+                    <Col xl={6}>
+                        <UserPanelTinkoffTransactions user={userData} />
                     </Col>
                 </Row>
 

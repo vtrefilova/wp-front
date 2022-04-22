@@ -8,7 +8,7 @@ const API_getUsersByPage = async (page, pageSize) => {
         params.append("page", page);
         params.append("pageSize", pageSize);
 
-        const req = await request.get(`user/page?page=${page}&pageSize=${pageSize}/`);
+        const req = await request.get(`/admin/user?page=${page}&pageSize=${pageSize}`);
 
         return req.data.data;
     } catch(e) {

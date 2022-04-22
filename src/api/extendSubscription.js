@@ -7,7 +7,7 @@ const API_extendSubscription = async (
     days
 ) => {
     try {
-        const req = await request.patch(`subscription/extend/${id}/`, {
+        const req = await request.post(`/admin/user/subscription/extend/${id}/`, {
             days
         });
 

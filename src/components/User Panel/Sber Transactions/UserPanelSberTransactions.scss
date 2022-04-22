@@ -1,0 +1,23 @@
+.user-panel-transactions-paging-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.user-panel-transactions-list {
+    margin-top: 15px;
+
+    .user-panel-transaction-container {
+        display: grid;
+        grid-auto-flow: column;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        .user-panel-transaction-row-value {
+            font-size: 15px;
+            font-weight: 500;
+        }
+    }
+}

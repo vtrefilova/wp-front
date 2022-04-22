@@ -12,7 +12,7 @@ const API_updateUser = async (
     roleName = null
 ) => {
     try {
-        const req = await request.patch(`user/${id}/`, {
+        const req = await request.patch(`/admin/user/${id}/`, {
             username,
             email,
             plannedIncome,

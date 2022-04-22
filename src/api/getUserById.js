@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 
 const API_getUserById = async (id) => {
     try {
-        const req = await request.get(`user/${id}/`);
+        const req = await request.get(`/admin/user/${id}/`);
 
         return req.data.data;
     } catch(e) {

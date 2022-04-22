@@ -1,7 +1,7 @@
 import request from "./request";
 import { toast } from 'react-toastify';
 
-const API_getUserTransactions = async (
+const API_getUserTochkaTransactions = async (
     id,
     page,
     pageSize
@@ -12,7 +12,7 @@ const API_getUserTransactions = async (
         params.append("page", page);
         params.append("pageSize", pageSize);
 
-        const req = await request.get(`/admin/user/bill-transactions/${id}?` + params.toString());
+        const req = await request.get(`/admin/user/tochka-transactions/${id}?` + params.toString());
 
         return req.data.data;
     } catch(e) {
@@ -22,4 +22,4 @@ const API_getUserTransactions = async (
     
 }
 
-export default API_getUserTransactions;
+export default API_getUserTochkaTransactions;

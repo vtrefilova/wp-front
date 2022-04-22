@@ -5,9 +5,12 @@ import { Card, CardBody, CardHeader, Row, Col, Container, Pagination, Pagination
 import API_getUserTransactions from '../../../api/getUserTransactions';
 import moment from 'moment';
 
-import './UserPanelTransactions.scss';
+import './UserPanelTochkaTransactions.scss';
+import API_getUserSberTransactions from '../../../api/getUserSberTransactions';
+import API_getUserTinkoffTransactions from '../../../api/getUserTinkoffTransactions';
+import API_getUserTochkaTransactions from '../../../api/getUserTochkaTransactions';
 
-const UserPanelTransactions = ({
+const UserPanelTochkaTransactions = ({
     user
 }) => {
 
@@ -17,7 +20,7 @@ const UserPanelTransactions = ({
     const [total, setTotal] = useState(0);
 
     const getTransactions = async () => {
-        const data = await API_getUserTransactions(user.id, page - 1, 10);
+        const data = await API_getUserTochkaTransactions(user.id, page - 1, 10);
 
         if (data) {
             setTransactions(data.page);
@@ -52,7 +55,7 @@ const UserPanelTransactions = ({
         <>
             <Card>
                 <CardHeader>
-                    <h6 className="card-title mb-0">Транзакции</h6>
+                    <h6 className="card-title mb-0">Транзакции Точка</h6>
                 </CardHeader>
 
                 <CardBody>
@@ -73,16 +76,16 @@ const UserPanelTransactions = ({
                             {
                                 transactions.map((item, idx) => (
                                     <div key={idx} className="b-b-light user-panel-transaction-container">
+                                        {/* <p className="mb-0 user-panel-transaction-row-value">
+                                            {item.card ? item.card.cardNumber : "Карта отсутствует"}
+                                        </p> */}
+
                                         <p className="mb-0 user-panel-transaction-row-value">
-                                            {item.bill ? item.bill.name : "Счет отсутствует"}
+                                            {item.amount.amount} {item.amount.cents} {item.currency}
                                         </p>
 
                                         <p className="mb-0 user-panel-transaction-row-value">
-                                            {item.sum} {item.currency}
-                                        </p>
-
-                                        <p className="mb-0 user-panel-transaction-row-value">
-                                            {item.createAt ? moment(item.createAt).format("DD.MM.YYYY HH:mm:ss") : "Дата отсутствует"}
+                                            {item.date ? moment(item.date).format("DD.MM.YYYY HH:mm:ss") : "Дата отсутствует"}
                                         </p>
                                     </div>
                                 ))
@@ -95,4 +98,4 @@ const UserPanelTransactions = ({
     );
 }
 
-export default UserPanelTransactions;
+export default UserPanelTochkaTransactions;

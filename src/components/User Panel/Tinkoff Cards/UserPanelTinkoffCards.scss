@@ -1,0 +1,17 @@
+.user-panel-bill-container {
+    display: grid;
+    grid-auto-flow: column;
+    align-items: center;
+    justify-content: space-between;
+
+    .user-panel-bill-title {
+        font-weight: 500;
+        font-size: 16px;
+    }
+
+    .user-panel-bill-balance {
+        font-weight: bold;
+        color: #7366ff;
+        font-size: 17px;
+    }
+}

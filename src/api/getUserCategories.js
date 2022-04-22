@@ -4,12 +4,8 @@ import { toast } from 'react-toastify';
 const API_getUserCategories = async (
     id
 ) => {
-    const params = new URLSearchParams();
-
-    params.append("userId", id);
-
     try {
-        const req = await request.get(`category/?` + params.toString());
+        const req = await request.get(`/admin/user/categories/` + id);
 
         return req.data.data;
     } catch(e) {

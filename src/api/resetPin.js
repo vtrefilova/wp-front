@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 
 const API_resetUserPin = async (id) => {
     try {
-        const req = await request.delete(`user/pin/${id}/`);
+        const req = await request.post(`admin/user/reset-pin/${id}/`);
 
         return req.data.data;
     } catch(e) {

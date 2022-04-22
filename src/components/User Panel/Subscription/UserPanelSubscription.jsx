@@ -36,7 +36,7 @@ const UserPanelSubscription = ({
         if (!subscription)
             return;
 
-        const result = await API_resetSubscription(subscription.id);
+        const result = await API_resetSubscription(user.id);
 
         if (result) {
             getSubscription();
@@ -48,7 +48,7 @@ const UserPanelSubscription = ({
         if(extendDays <= 0)
             return toast.error("Введите количество дней");
 
-        const result = await API_extendSubscription(subscription.id, extendDays);
+        const result = await API_extendSubscription(user.id, extendDays);
 
         if(result) {
             setExtendDays(0);
