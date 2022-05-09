@@ -6,11 +6,7 @@ const API_adRemoveFile = async (
     id
 ) => {
     try {
-        const req = await request.delete(`advertising/file/` + adId, {
-            data: JSON.stringify({
-                id: id
-            })
-        });
+        const req = await request.delete(`advertising/file/` + adId + "/" + id);
 
         return req.data.data;
     } catch(e) {
