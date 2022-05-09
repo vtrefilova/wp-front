@@ -5,22 +5,26 @@ const API_createBaseCategory = async (
     name,
     desc,
     color,
-    icon
+    icon,
+    forEarn,
+    forSpend
 ) => {
     try {
         const req = await request.post("base-category/", {
             name,
             description: desc,
             color,
-            icon
+            icon,
+            forEarn,
+            forSpend
         });
 
         return req.data.data;
-    } catch(e) {
+    } catch (e) {
         toast.error("Ошибка при создании базовой категории.");
         return null;
     }
-    
+
 }
 
 export default API_createBaseCategory;

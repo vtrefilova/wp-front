@@ -6,14 +6,18 @@ const API_updateBaseCategory = async (
     desc,
     color,
     icon,
-    id
+    id,
+    forEarn,
+    forSpend
 ) => {
     try {
         const req = await request.patch(`base-category/${id}/`, {
             name,
             description: desc,
             color,
-            icon
+            icon,
+            forEarn,
+            forSpend
         });
 
         return req.data.data;

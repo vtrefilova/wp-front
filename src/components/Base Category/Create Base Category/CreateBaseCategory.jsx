@@ -19,6 +19,9 @@ const CreateBaseCategory = ({
     const [selectedIcon, setSelectedIcon] = useState(null);
     const [showIconSelector, setShowIconSelector] = useState(false);
 
+    const [forEarn, setForEarn] = useState(true)
+    const [forSpend, setForSpend] = useState(true)
+
     const toggleShowColorSelector = () => setShowColorSelector(!showColorSelector);
     const toggleShowIconSelector = () => setShowIconSelector(!showIconSelector);
 
@@ -29,27 +32,29 @@ const CreateBaseCategory = ({
 
     const createBaseCategory = async (e) => {
         e.preventDefault();
-        
+
         const name = e.target.name.value;
         const desc = e.target.desc.value;
 
-        if(!name.length)
+        if (!name.length)
             return toast.error("Введите название категории.");
 
-        if(name.length < 2 || name.length > 64)
+        if (name.length < 2 || name.length > 64)
             return toast.error("Минимальная длина названия категории 2, максимальная 64.");
 
-        if(!selectedColor)
+        if (!selectedColor)
             return toast.error("Выберите цвет категории");
 
         const result = await API_createBaseCategory(
             name,
             desc,
             selectedColor.systemName,
-            selectedIcon ? selectedIcon.id : null
+            selectedIcon ? selectedIcon.id : null,
+            forEarn,
+            forSpend
         );
 
-        if(result != null) {
+        if (result != null) {
             clearCreateBaseCategoryData();
             toggleShow(false);
             toast.success("Базовая категория создана.");
@@ -93,6 +98,15 @@ const CreateBaseCategory = ({
                                     </div>
                                     <small className="form-text text-muted">{selectedIcon ? "" : "Нет"}</small>
                                 </div>
+                            </FormGroup>
+                            <FormGroup>
+                                <Input checked={forSpend} onChange={() => setForSpend(!forSpend)} id="checkbox1" type="checkbox" />
+                                <Label className="text-muted" for="checkbox1">Включает расходы</Label>
+                            </FormGroup>
+
+                            <FormGroup>
+                                <Input checked={forEarn} onChange={() => setForEarn(!forEarn)} id="checkbox2" type="checkbox" />
+                                <Label className="text-muted" for="checkbox2">Включает доходы</Label>
                             </FormGroup>
                         </CardBody>
                         <CardFooter>

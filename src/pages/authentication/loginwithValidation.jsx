@@ -98,7 +98,7 @@ const LoginwithValidation = (props) => {
                             </FormGroup>
                             <FormGroup className="mb-0">
                                 <div className="checkbox ml-3">
-                                <Input id="checkbox1" type="checkbox"/>
+                                <Input id="1" type="checkbox"/>
                                 <Label className="text-muted" for="checkbox1">{RememberPassword}</Label>
                                 </div>
                                 <a className="link" href="#javascript">{ForgotPassword}</a>

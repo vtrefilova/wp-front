@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 
 const API_getCategoryColors = async () => {
     try {
-        const req = await request.get("category/colors/");
+        const req = await request.get("category/colors");
 
         return req.data.data;
     } catch(e) {

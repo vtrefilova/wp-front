@@ -22,6 +22,9 @@ const EditBaseCategory = ({
     const [name, setName] = useState("");
     const [desc, setDesc] = useState("");
 
+    const [forEarn, setForEarn] = useState(true)
+    const [forSpend, setForSpend] = useState(true)
+
     const toggleShowColorSelector = () => setShowColorSelector(!showColorSelector);
     const toggleShowIconSelector = () => setShowIconSelector(!showIconSelector);
 
@@ -35,6 +38,8 @@ const EditBaseCategory = ({
             setSelectedColor(category.color);
             setName(category.name);
             setDesc(category.description);
+            setForEarn(category.forEarn)
+            setForSpend(category.forSpend)
         }
     }
 
@@ -58,7 +63,9 @@ const EditBaseCategory = ({
             desc,
             selectedColor.systemName,
             selectedIcon ? selectedIcon.id : null,
-            category.id
+            category.id,
+            forEarn,
+            forSpend
         );
 
         if(result != null) {
@@ -104,6 +111,16 @@ const EditBaseCategory = ({
                                     </div>
                                     <small className="form-text text-muted">{selectedIcon ? "" : "Нет"}</small>
                                 </div>
+                            </FormGroup>
+
+                            <FormGroup>
+                                <Input checked={forSpend} onChange={() => setForSpend(!forSpend)} id="checkbox1" type="checkbox" />
+                                <Label className="text-muted" for="checkbox1">Включает расходы</Label>
+                            </FormGroup>
+
+                            <FormGroup>
+                                <Input checked={forEarn} onChange={() => setForEarn(!forEarn)} id="checkbox2" type="checkbox" />
+                                <Label className="text-muted" for="checkbox2">Включает доходы</Label>
                             </FormGroup>
                         </CardBody>
                         <CardFooter>

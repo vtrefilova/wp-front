@@ -148,6 +148,14 @@ const BaseCategory = () => {
                                                         <div className="task-data-container">
                                                             <h4 className="task-label">{category.name}</h4>
                                                         </div>
+
+                                                        <div className="task-data-container">
+                                                            <h4 className="task-label">{category.forEarn ? "Включает доходы" : "Не включает доходы"}</h4>
+                                                        </div>
+
+                                                        <div className="task-data-container">
+                                                            <h4 className="task-label">{category.forSpend ? "Включает расходы" : "Не включает расходы"}</h4>
+                                                        </div>
                                                         <span className="task-action-btn">
                                                             <span onClick={() => setSelectedCategory(category)} className="action-box large complete-btn" title="Изменить базовую категорию">
                                                                 <i className="icon"><i className="icon-pencil"></i></i>
