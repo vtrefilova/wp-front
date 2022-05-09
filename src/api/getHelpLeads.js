@@ -11,7 +11,7 @@ const API_getHelpLeads = async (
         params.append("page", page);
         params.append("pageSize", pageSize);
 
-        const req = await request.get(`help/page/?` + params.toString());
+        const req = await request.get(`help/page?` + params.toString());
 
         return req.data.data;
     } catch(e) {
