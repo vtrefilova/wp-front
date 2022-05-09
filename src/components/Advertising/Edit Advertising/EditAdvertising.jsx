@@ -35,9 +35,6 @@ const EditAdvertising = ({
     const updateAd = async (e) => {
         e.preventDefault();
 
-        if (!title.length)
-            return toast.error("Введите заголовок");
-
         const result = await API_updateAd(ad.id, title, subTitle, content);
 
         for await(let f of e.target.files.files) {

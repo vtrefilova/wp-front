@@ -25,11 +25,6 @@ const CreateAdvertising = ({
             const subtitle = e.target.subtitle.value;
             const content = e.target.content.value;
 
-            if (!title.length)
-                return toast.error("Введите заголовок");
-
-            let result = null;
-
             const files = e.target.files;
 
             const createResult = await API_createAd(title, subtitle, content);
