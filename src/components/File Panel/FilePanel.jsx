@@ -180,7 +180,7 @@ const FilePanel = () => {
                                             !load ? categories[selectedCategory].data.length ? categories[selectedCategory].data.map((item, idx) => (
                                                 <li key={idx} className="file-box">
                                                     <div className="file-top" style={{
-                                                        backgroundImage: `url('https://wallet-box-app.ru:8888/api/v1/image/content/${item.name}/')`,
+                                                        backgroundImage: `url('https://wallet-box.ru:8888/api/v1/image/content/${item.name}/')`,
                                                         backgroundSize: 'contain',
                                                         backgroundRepeat: 'no-repeat',
                                                         backgroundPosition: 'center'

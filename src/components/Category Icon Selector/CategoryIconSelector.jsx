@@ -44,7 +44,7 @@ const CategoryIconSelector = ({
                                 setIcon(ico);
                                 toggleShow();
                             }} key={idx} className="category-icon-block-container">
-                                <img className="category-icon-preview" src={`https://wallet-box-app.ru:8888/api/v1/image/content/${ico.name}/`} />
+                                <img className="category-icon-preview" src={`https://wallet-box.ru:8888/api/v1/image/content/${ico.name}/`} />
                             </div>
                         ))
                     }
