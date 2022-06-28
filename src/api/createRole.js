@@ -10,7 +10,8 @@ const API_createRole = async (
             autoApply: false,
             isAdmin: false,
             roleAfterBuy: false,
-            roleAfterBuyExpiration: false
+            roleAfterBuyExpiration: false,
+            roleForBlocked: false
         });
 
         return req.data.data;
