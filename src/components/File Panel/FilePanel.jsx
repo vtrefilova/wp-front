@@ -56,14 +56,13 @@ const FilePanel = () => {
         if (tag == null)
             return toast.error("Выберите тег");
 
-        const result = await API_uploadFile(files[0].file, tag);
-
-        if (result) {
-            setSelectedImageType(0);
-            toast.success("Файл успешно загружен");
-            setShowFileUpload(false);
-            getFiles();
+        for await( let file of files ) {
+            await API_uploadFile(file.file, tag);
         }
+
+        setSelectedImageType(0);
+        setShowFileUpload(false);
+        getFiles();
     }
 
     const getFiles = async () => {
@@ -124,8 +123,8 @@ const FilePanel = () => {
                         </Input>
 
                         <Dropzone
-                            maxFiles={1}
-                            multiple={false}
+                            maxFiles={10}
+                            multiple={true}
                             canCancel={true}
                             onSubmit={uploadFile}
                             submitButtonContent="Загрузить"
@@ -180,7 +179,7 @@ const FilePanel = () => {
                                             !load ? categories[selectedCategory].data.length ? categories[selectedCategory].data.map((item, idx) => (
                                                 <li key={idx} className="file-box">
                                                     <div className="file-top" style={{
-                                                        backgroundImage: `url('https://wallet-box.ru:8888/api/v1/image/content/${item.name}/')`,
+                                                        backgroundImage: `url('https://api.wallet-box.ru/api/v1/image/content/${item.name}/')`,
                                                         backgroundSize: 'contain',
                                                         backgroundRepeat: 'no-repeat',
                                                         backgroundPosition: 'center'
