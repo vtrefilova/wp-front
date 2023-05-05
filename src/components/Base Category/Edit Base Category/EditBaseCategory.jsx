@@ -40,6 +40,7 @@ const EditBaseCategory = ({
             setDesc(category.description);
             setForEarn(category.forEarn)
             setForSpend(category.forSpend)
+            console.log(category);
         }
     }
 
@@ -107,7 +108,7 @@ const EditBaseCategory = ({
                                 <div onClick={toggleShowIconSelector} className="selected-icon-container">
                                     <div className={`selected-icon-block`}>
                                         {selectedIcon &&
-                                            <img className="selected-icon-preview" src={`http://46.30.41.45/api/v1/image/content/${selectedIcon.name}/`} />}
+                                            <img className="selected-icon-preview" src={`https://api.wallet-box.ru/api/v1/image/content/${selectedIcon.name}/`} />}
                                     </div>
                                     <small className="form-text text-muted">{selectedIcon ? "" : "Нет"}</small>
                                 </div>

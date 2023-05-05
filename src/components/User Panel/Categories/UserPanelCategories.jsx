@@ -43,7 +43,7 @@ const UserPanelCategories = ({
                                     }} />
 
                                     {category.icon ? (<div className="user-panel-category-icon-container">
-                                        <img className="user-panel-category-icon-preview" src={`https://wallet-box.ru:8888/api/v1/image/content/${category.icon.name}/`} />
+                                        <img className="user-panel-category-icon-preview" src={`https://api.wallet-box.ru/api/v1/image/content/${category.icon.name}/`} />
                                     </div>) : (<p className="text-muted">Иконка отсутствует</p>)}
 
                                     {/* <div className="user-panel-category-actions">

@@ -80,7 +80,7 @@ const EditCardBlank = ({
                             <Label className="col-form-label pt-0" >Изображение бланка</Label>
                             <div onClick={toggleImageSelector} className={`edit-card-blank-image-container pointer ${selectedImage ? "" : "b-light"}`}>
                                 {selectedImage ? (
-                                    <img className="card-image-preview" src={`https://wallet-box.ru:8888/api/v1/image/content/${selectedImage.name}/`} />
+                                    <img className="card-image-preview" src={`https://api.wallet-box.ru/api/v1/image/content/${selectedImage.name}/`} />
                                 ) : (<p style={{
                                     textAlign: 'center'
                                 }}>
